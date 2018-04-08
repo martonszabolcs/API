@@ -55,6 +55,7 @@ const config = {
     ip: process.env.IP || undefined,
     port: process.env.PORT || 8080,
     mongo: {
+      options: {},
       uri: process.env.MONGODB_URI || 'mongodb://localhost/e-terkep'
     }
   }
