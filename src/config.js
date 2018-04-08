@@ -37,6 +37,7 @@ const config = {
   },
   test: {
     mongo: {
+      options: {},
       uri: 'mongodb://localhost/e-terkep-test',
       options: {
         debug: false
@@ -45,6 +46,7 @@ const config = {
   },
   development: {
     mongo: {
+      options: {},
       uri: 'mongodb://localhost/e-terkep-dev',
       options: {
         debug: true
