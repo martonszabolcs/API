@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "9701eb0c-f14d-437e-9a2e-a4d10e049408",
+		"name": "Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"description": "",
+			"item": [
+				{
+					"name": "CREATE_User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "access_token",
+									"value": "e0cAiR20cMQMpSpV1z1DCuLFS3HcArbx",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin@admin.hu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Szabi",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://dry-mountain-15425.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"dry-mountain-15425",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE_User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "access_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYzJmN2M2MzQwNmM1MDAxNDhkNWU4OCIsImlhdCI6MTUyMzE0NDQ1MX0.vI3bj1tNb87oFJY8KvOHUeDFHGWqN5zk81yXfUwZOtk",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://eterkep.herokuapp.com/users/5ac37b66181f310014bb52a9",
+							"protocol": "https",
+							"host": [
+								"eterkep",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"5ac37b66181f310014bb52a9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List_User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Article",
+			"description": "",
+			"item": [
+				{
+					"name": "CREATE_Article",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "access_token\t",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhYzk1ZDgzMmZjNWJmMDAxNDU2ZDllZCIsImlhdCI6MTUyMzE0NjIyOH0.Ibfqt3tycoO-2E8jKVJLDn3zVlF3NGcGILAIuIH6wDc",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "cime kontekt",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "content contentcontentcontentcontentcontent kontent",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://dry-mountain-15425.herokuapp.com/articles",
+							"protocol": "https",
+							"host": [
+								"dry-mountain-15425",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST_Article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin@admin.hu",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "access_token",
+							"value": "e0cAiR20cMQMpSpV1z1DCuLFS3HcArbx",
+							"description": "MasterKey",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dry-mountain-15425.herokuapp.com/auth",
+					"protocol": "https",
+					"host": [
+						"dry-mountain-15425",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
