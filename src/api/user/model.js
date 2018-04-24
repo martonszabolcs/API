@@ -45,6 +45,35 @@ const userSchema = new Schema({
   organization:{
     type: String,
     required: true
+  },
+  specialization: {
+    type: String,
+    required: true
+  },
+  education: {
+    type: String,
+    required: true
+  },
+  material: {
+    type: String,
+    required: true
+  },
+  human: {
+    type: String,
+    required: true
+  },
+  service: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+
+  keywords: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: true
@@ -78,7 +107,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods = {
   view (full) {
     let view = {}
-    let fields = ['id', 'name', 'picture', 'city', 'organization' ]
+    let fields = ['id', 'name', 'picture', 'city', 'organization', 'specialization', 'education', 'material', 'human', 'service', 'description', 'keywords' ]
 
     if (full) {
       fields = [...fields, 'email', 'createdAt']
