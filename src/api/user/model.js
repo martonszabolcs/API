@@ -26,6 +26,10 @@ const userSchema = new Schema({
     index: true,
     trim: true
   },
+  city: {
+    type: String,
+    required: true
+  },
   services: {
     facebook: String
   },
