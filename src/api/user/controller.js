@@ -15,6 +15,7 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
 
 export const show = ({ params }, res, next) =>
   User.findById(params.id)
+
     .then(notFound(res))
     .then((user) => user ? user.view() : null)
     .then(success(res))
@@ -23,11 +24,12 @@ export const show = ({ params }, res, next) =>
 export const showMe = ({ user }, res) =>
   res.json(user.view(true))
 
-export const create = ({ bodymen: { body } }, res, next) =>
+export const create = ({ bodymen: { body } }, res, next) => {
   User.create(body)
     .then(user => {
+      console.log(user.view(true));
       sign(user.id)
-        .then((token) => ({ token, user: user.view(true) }))
+        .then((token) => ({ token, user: user.view(true)}))
         .then(success(res, 201))
     })
     .catch((err) => {
@@ -42,6 +44,7 @@ export const create = ({ bodymen: { body } }, res, next) =>
         next(err)
       }
     })
+}
 
 export const update = ({ bodymen: { body }, params, user }, res, next) =>
   User.findById(params.id === 'me' ? user.id : params.id)

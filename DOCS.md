@@ -13,6 +13,12 @@
 	- [Authenticate](#authenticate)
 	- [Authenticate with Facebook](#authenticate-with-facebook)
 	
+- [Notes](#notes)
+	- [Create notes](#create-notes)
+	- [Delete notes](#delete-notes)
+	- [Retrieve notes](#retrieve-notes)
+	- [Update notes](#update-notes)
+	
 - [User](#user)
 	- [Create user](#create-user)
 	- [Delete user](#delete-user)
@@ -117,6 +123,54 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Facebook user accessToken.</p>							|
+
+# Notes
+
+## Create notes
+
+
+
+	POST /notes
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| people			| 			|  <p>Notes's people.</p>							|
+| title			| 			|  <p>Notes's title.</p>							|
+| content			| 			|  <p>Notes's content.</p>							|
+| image			| 			|  <p>Notes's image.</p>							|
+
+## Delete notes
+
+
+
+	DELETE /notes/:id
+
+
+## Retrieve notes
+
+
+
+	GET /notes/:id
+
+
+## Update notes
+
+
+
+	PUT /notes/:id
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| people			| 			|  <p>Notes's people.</p>							|
+| title			| 			|  <p>Notes's title.</p>							|
+| content			| 			|  <p>Notes's content.</p>							|
+| image			| 			|  <p>Notes's image.</p>							|
 
 # User
 
