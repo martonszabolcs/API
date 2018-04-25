@@ -71,6 +71,11 @@ const userSchema = new Schema({
     required: true
   },
 
+  petName: {
+    type: String,
+    required: true
+  },
+
   keywords: {
     type: String,
     required: true
@@ -107,7 +112,7 @@ userSchema.pre('save', function (next) {
 userSchema.methods = {
   view (full) {
     let view = {}
-    let fields = ['id', 'name', 'picture', 'city', 'organization', 'specialization', 'education', 'material', 'human', 'service', 'description', 'keywords' ]
+    let fields = ['id', 'name', 'picture', 'city', 'organization', 'specialization', 'education', 'material', 'human', 'service', 'description', 'keywords', 'role', 'petName' ]
 
     if (full) {
       fields = [...fields, 'email', 'createdAt']

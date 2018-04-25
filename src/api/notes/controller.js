@@ -21,7 +21,7 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
 export const show = ({ params }, res, next) =>
   Notes.findById(params.id)
     .then(notFound(res))
-    .then((notes) => notes ? notes.view() : null)
+    .then((notes) => notes ? notes.view(true) : null)
     .then(success(res))
     .catch(next)
 
