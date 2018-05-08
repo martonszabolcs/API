@@ -38,9 +38,10 @@ const userSchema = new Schema({
     enum: roles,
     default: 'user'
   },
-  picture: {
-    type: String,
-    trim: true
+  photo: {
+    small: String,
+    medium: String,
+    large: String
   },
   organization:{
     type: String,
