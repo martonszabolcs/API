@@ -74,7 +74,7 @@ const userSchema = new Schema({
 
   petName: {
     type: String,
-    required: true
+    required: false
   },
 
   keywords: {
