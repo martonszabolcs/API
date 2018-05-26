@@ -6,6 +6,9 @@
 	- [Authenticate](#authenticate)
 	- [Authenticate with Facebook](#authenticate-with-facebook)
 	
+- [Initiative](#initiative)
+	- [Update initiative photo](#update-initiative-photo)
+	
 - [Notes](#notes)
 	- [Create notes](#create-notes)
 	- [Delete notes](#delete-notes)
@@ -55,6 +58,22 @@
 | Name    | Type      | Description                          |
 |---------|-----------|--------------------------------------|
 | access_token			| String			|  <p>Facebook user accessToken.</p>							|
+
+# Initiative
+
+## Update initiative photo
+
+
+
+	PUT /initiatives/:id/photo
+
+
+### Parameters
+
+| Name    | Type      | Description                          |
+|---------|-----------|--------------------------------------|
+| access_token			| String			|  <p>user access token.</p>							|
+| data			| 			|  <p>The file.</p>							|
 
 # Notes
 

@@ -26,7 +26,7 @@ const upload = multer({
  * @apiError 401 Admin access only.
  */
 router.get('/',
-  token({ required: true, /*roles: ['admin'] */}),
+  token({ required: true, roles: ['user'] }),
   query(),
   index)
 
@@ -137,7 +137,7 @@ router.put('/:id/photo',
  * @apiError 404 User not found.
  */
 router.delete('/:id',
-  token({ required: true}),
+  token({ required: true, roles: ['user']}),
   destroy)
 
 export default router
