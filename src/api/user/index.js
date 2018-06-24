@@ -1,5 +1,7 @@
 import { Router } from 'express'
 import multer from 'multer'
+import path from 'path'
+import _ from 'lodash'
 
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
@@ -92,7 +94,7 @@ router.post('/',
  * @apiError 404 Images not found.
  * @apiError 401 user access only.
  */
-router.post('/:id',
+router.post('/:id/',
   token({required: true}),
   upload.single('image'),
   createImg)
