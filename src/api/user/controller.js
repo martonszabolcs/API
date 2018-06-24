@@ -14,6 +14,12 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
     .then(success(res))
     .catch(next)
 
+    export const createImg = ({ user, file }, res, next) =>
+  Images.create({ ...file, createdBy: user })
+    .then((images) => images.view(true))
+    .then(success(res, 201))
+    .catch(next)
+
 export const show = ({ params }, res, next) =>
   User.findById(params.id)
 

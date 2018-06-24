@@ -1,12 +1,24 @@
 import { Router } from 'express'
 import multer from 'multer'
+
 import { middleware as query } from 'querymen'
 import { middleware as body } from 'bodymen'
 import { password as passwordAuth, master, token } from '../../services/passport'
-import { index, showMe, show, create, update, updatePassword, destroy, updatePhoto } from './controller'
+import { index, showMe, show, create, update, updatePassword, destroy, updatePhoto, createImg } from './controller'
 import { schema } from './model'
 export User, { schema } from './model'
 
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, path.resolve('./uploads'))
+  },
+  filename: function (req, file, callback) {
+    var name = file.originalname.split('.')[0] + '-' + Date.now() + path.extname(file.originalname)
+    name = _.replace(name, /\s/g, '_')
+    callback(null, name)
+  }
+})
+const upload = multer({storage: storage})
 const router = new Router()
 const { email, password, name, picture, role, city, organization, specialization, education, material, human, service, description, keywords, petName } = schema.tree
 
@@ -69,7 +81,21 @@ router.post('/',
   master(),
   body({ email, password, name, picture, city, role, organization, specialization, education, material, human, service, description, keywords, petName}),
   create)
-
+/**
+ * @api {post} /images Create images
+ * @apiName CreateImages
+ * @apiGroup Images
+ * @apiPermission user
+ * @apiParam {String} access_token user access token.
+ * @apiSuccess {Object} images Images's data.
+ * @apiError {Object} 400 Some parameters may contain invalid values.
+ * @apiError 404 Images not found.
+ * @apiError 401 user access only.
+ */
+router.post('/:id',
+  token({required: true}),
+  upload.single('image'),
+  createImg)
 /**
  * @api {put} /users/:id Update user
  * @apiName UpdateUser
@@ -104,7 +130,22 @@ router.put('/:id/password',
   body({ password }),
   updatePassword)
 
-
+/**
+ * @api {put} /initiatives/:id/photo Update initiative photo
+ * @apiName UpdateInitiativePhoto
+ * @apiGroup Initiative
+ * @apiPermission user
+ * @apiParam {String} access_token user access token.
+ * @apiParam data The file.
+ * @apiSuccess {Object} initiative Initiative's data.
+ * @apiError {Object} 400 Some parameters may contain invalid values.
+ * @apiError 404 Initiative not found.
+ * @apiError 401 user access only.
+ */
+router.put('/:id/photo',
+  token({ required: true }),
+  upload.single('data'),
+  updatePhoto)
 
 
 /**
