@@ -3,6 +3,7 @@ import user from './user'
 import auth from './auth'
 import notes from './notes'
 
+
 const router = new Router()
 
 /**
@@ -31,5 +32,6 @@ const router = new Router()
 router.use('/users', user)
 router.use('/auth', auth)
 router.use('/notes', notes)
+
 
 export default router

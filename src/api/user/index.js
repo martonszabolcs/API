@@ -9,11 +9,7 @@ export User, { schema } from './model'
 
 const router = new Router()
 const { email, password, name, picture, role, city, organization, specialization, education, material, human, service, description, keywords, petName } = schema.tree
-const upload = multer({
-  limits: {
-    fileSize: 2 * Math.pow(1024, 2) // 2MB
-  }
-})
+
 /**
  * @api {get} /users Retrieve users
  * @apiName RetrieveUsers
@@ -108,22 +104,7 @@ router.put('/:id/password',
   body({ password }),
   updatePassword)
 
-/**
- * @api {put} /initiatives/:id/photo Update initiative photo
- * @apiName UpdateInitiativePhoto
- * @apiGroup Initiative
- * @apiPermission user
- * @apiParam {String} access_token user access token.
- * @apiParam data The file.
- * @apiSuccess {Object} initiative Initiative's data.
- * @apiError {Object} 400 Some parameters may contain invalid values.
- * @apiError 404 Initiative not found.
- * @apiError 401 user access only.
- */
-router.put('/:id/photo',
-  token({ required: true }),
-  upload.single('data'),
-  updatePhoto)
+
 
 
 /**
