@@ -22,7 +22,7 @@ const { email, password, name, picture, role, city, organization, specialization
  * @apiError 401 Admin access only.
  */
 router.get('/',
-  token({ required: true, /*roles: ['admin'] */}),
+  token({ required: true, roles: ['user'] }),
   query(),
   index)
 
@@ -118,7 +118,7 @@ router.put('/:id/password',
  * @apiError 404 User not found.
  */
 router.delete('/:id',
-  token({ required: true}),
+  token({ required: true, roles: ['user']}),
   destroy)
 
 export default router
